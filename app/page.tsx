@@ -148,53 +148,90 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 md:py-24 bg-muted/50">
+      <section
+        id="about"
+        className="py-16 md:py-24 bg-gradient-to-br from-background via-muted/30 to-background overflow-hidden"
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose M&G Real Estate</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              We're redefining real estate with a modern, client-focused approach
+          {/* Hero Introduction */}
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent">
+              Redefining Real Estate
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed text-pretty">
+              We're not just another agency. We're your strategic partner in navigating Dubai's dynamic property market
+              with innovation, integrity, and intelligence.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="h-6 w-6 text-primary" />
+          {/* Bento Grid Values */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {/* Data-Driven - Large Card */}
+            <div className="md:col-span-2 lg:col-span-2 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 md:p-12 border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
+              <div className="flex flex-col h-full justify-between">
+                <div>
+                  <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <BarChart3 className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4">Data-Driven Decisions</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Every recommendation we make is backed by comprehensive market analytics, trend forecasting, and
+                    real-time data. We transform complex market insights into clear, actionable strategies that give you
+                    a competitive edge in Dubai's real estate landscape.
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Data-Driven Company</h3>
-                <p className="text-muted-foreground">
-                  We leverage market analytics and insights to help you make informed decisions backed by real data
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-6 w-6 text-primary" />
+            {/* Your Satisfaction - Tall Card */}
+            <div className="lg:row-span-2 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-2xl p-8 border border-accent/20 hover:border-accent/40 transition-all duration-300 group">
+              <div className="flex flex-col h-full">
+                <div className="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="h-8 w-8 text-accent" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Your Satisfaction First</h3>
-                <p className="text-muted-foreground">
-                  Your goals are our priority. We're committed to delivering exceptional service and results that exceed
-                  expectations
+                <h3 className="text-3xl font-bold mb-4">Your Success, Our Mission</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  We measure our success by yours. From your first inquiry to long after closing, we're dedicated to
+                  exceeding expectations at every touchpoint.
                 </p>
-              </CardContent>
-            </Card>
+                <div className="mt-auto pt-6 border-t border-accent/20">
+                  <p className="text-sm text-muted-foreground italic">
+                    "Client satisfaction isn't just a goal—it's our foundation."
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <Card>
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="h-6 w-6 text-primary" />
+            {/* Not Typical - Wide Card */}
+            <div className="md:col-span-2 bg-gradient-to-br from-secondary/10 via-secondary/5 to-transparent rounded-2xl p-8 md:p-12 border border-secondary/20 hover:border-secondary/40 transition-all duration-300 group">
+              <div className="flex flex-col md:flex-row items-start gap-6">
+                <div className="w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Sparkles className="h-8 w-8 text-secondary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Not Your Typical Real Estate</h3>
-                <p className="text-muted-foreground">
-                  We break the mold with innovative solutions, transparent processes, and a fresh perspective on
-                  property services
-                </p>
-              </CardContent>
-            </Card>
+                <div>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4">Breaking the Mold</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Forget pushy sales tactics and hidden agendas. We bring transparency, innovation, and a fresh
+                    perspective to every transaction. Our approach combines cutting-edge technology with genuine human
+                    connection to deliver an experience that's as exceptional as it is efficient.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <p className="text-lg text-muted-foreground mb-6">Ready to experience real estate differently?</p>
+            <Button size="lg" asChild>
+              <Link
+                href="https://wa.me/+971525069115?text=Hello%21%20I%20am%20interested%20in%20your%20Real%20Estate%20services%20in%20Dubai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Start Your Journey
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
