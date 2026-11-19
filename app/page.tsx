@@ -7,6 +7,7 @@ import {
   Bath,
   Square,
   Mail,
+  Phone,
   Facebook,
   Instagram,
   Linkedin,
@@ -19,52 +20,13 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { SiteHeader } from "@/components/site-header"
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/site"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="border-b bg-background sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/logo-black.svg"
-              alt="M&G Real Estate"
-              width={180}
-              height={60}
-              className="h-12 w-auto dark:hidden"
-              priority
-            />
-            <Image
-              src="/logo-white.png"
-              alt="M&G Real Estate"
-              width={180}
-              height={60}
-              className="h-12 w-auto hidden dark:block"
-              priority
-            />
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="#properties" className="text-sm font-medium hover:text-primary transition-colors">
-              Properties
-            </Link>
-            <Link href="#about" className="text-sm font-medium hover:text-primary transition-colors">
-              About
-            </Link>
-            <Link href="#services" className="text-sm font-medium hover:text-primary transition-colors">
-              Services
-            </Link>
-            <Link
-              href="https://wa.me/+971525069115?text=Hello%21%20I%20am%20interested%20in%20your%20Real%20Estate%20services%20in%20Dubai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium hover:text-primary transition-colors"
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-muted/50 to-background">
@@ -78,12 +40,12 @@ export default function HomePage() {
               in finding the perfect home or investment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-base">
-                Browse Properties
+              <Button size="lg" className="text-base" asChild>
+                <Link href="#properties">Browse Properties</Link>
               </Button>
               <Button size="lg" variant="outline" className="text-base bg-transparent" asChild>
                 <Link
-                  href="https://wa.me/+971525069115?text=Hello%21%20I%20am%20interested%20in%20your%20Real%20Estate%20services%20in%20Dubai"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -110,15 +72,16 @@ export default function HomePage() {
               <Card key={i} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-[4/3] bg-muted relative">
                   <Image
-                    src={`/modern-luxury-home-exterior-.jpg?height=400&width=600&query=modern luxury home exterior ${i}`}
+                    src="/property-placeholder.jpg"
                     alt={`Property ${i}`}
                     fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover"
                   />
                 </div>
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-2xl font-bold">$850,000</span>
+                    <span className="text-2xl font-bold">AED 3,100,000</span>
                     <span className="text-sm text-muted-foreground">For Sale</span>
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Modern Family Home</h3>
@@ -184,17 +147,17 @@ export default function HomePage() {
             </div>
 
             {/* Your Satisfaction - Tall Card */}
-            <div className="lg:row-span-2 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-2xl p-8 border border-accent/20 hover:border-accent/40 transition-all duration-300 group">
+            <div className="lg:row-span-2 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
               <div className="flex flex-col h-full">
-                <div className="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Heart className="h-8 w-8 text-accent" />
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4">Your Success, Our Mission</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   We measure our success by yours. From your first inquiry to long after closing, we're dedicated to
                   exceeding expectations at every touchpoint.
                 </p>
-                <div className="mt-auto pt-6 border-t border-accent/20">
+                <div className="mt-auto pt-6 border-t border-primary/20">
                   <p className="text-sm text-muted-foreground italic">
                     "Client satisfaction isn't just a goal—it's our foundation."
                   </p>
@@ -203,10 +166,10 @@ export default function HomePage() {
             </div>
 
             {/* Not Typical - Wide Card */}
-            <div className="md:col-span-2 bg-gradient-to-br from-secondary/10 via-secondary/5 to-transparent rounded-2xl p-8 md:p-12 border border-secondary/20 hover:border-secondary/40 transition-all duration-300 group">
+            <div className="md:col-span-2 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 md:p-12 border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
               <div className="flex flex-col md:flex-row items-start gap-6">
-                <div className="w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <Sparkles className="h-8 w-8 text-secondary" />
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Sparkles className="h-8 w-8 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold mb-4">Breaking the Mold</h3>
@@ -225,7 +188,7 @@ export default function HomePage() {
             <p className="text-lg text-muted-foreground mb-6">Ready to experience real estate differently?</p>
             <Button size="lg" asChild>
               <Link
-                href="https://wa.me/+971525069115?text=Hello%21%20I%20am%20interested%20in%20your%20Real%20Estate%20services%20in%20Dubai"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -325,7 +288,7 @@ export default function HomePage() {
                   <Linkedin className="h-5 w-5" />
                 </Link>
                 <Link
-                  href="https://wa.me/+971525069115?text=Hello%21%20I%20am%20interested%20in%20your%20Real%20Estate%20services%20in%20Dubai"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary-foreground/80 transition-colors"
@@ -355,7 +318,12 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#contact" className="hover:text-primary-foreground transition-colors">
+                  <Link
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary-foreground transition-colors"
+                  >
                     Contact
                   </Link>
                 </li>
@@ -368,6 +336,12 @@ export default function HomePage() {
                 <li className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                   <span>XL Damac Tower, 1908 Business Bay</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 flex-shrink-0" />
+                  <a href={`tel:${PHONE_TEL}`} className="hover:text-primary-foreground transition-colors">
+                    {PHONE_DISPLAY}
+                  </a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4 flex-shrink-0" />
